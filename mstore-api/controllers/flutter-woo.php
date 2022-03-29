@@ -760,6 +760,8 @@ class FlutterWoo extends FlutterBaseController
         $results = [];
         foreach ($shipping_methods as $shipping_method) {
             $rates = $shipping_method['rates'];
+            // KP
+            $processing_time = $shipping_method['processing_time'] ?? null;
             foreach ($rates as $rate) {
                 $results[] = [
                     "id" => $rate->get_id(),
@@ -768,7 +770,9 @@ class FlutterWoo extends FlutterBaseController
                     "label" => $rate->get_label(),
                     "cost" => $rate->get_cost(),
                     "taxes" => $rate->get_taxes(),
-                    "shipping_tax" => $rate->get_shipping_tax()
+                    "shipping_tax" => $rate->get_shipping_tax(),
+                    // KP
+                    "processing_time" => $processing_time
                 ];
             }
         }
