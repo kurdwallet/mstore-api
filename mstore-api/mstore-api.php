@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: MStore API
+ * Plugin Name: MStore API KP
  * Plugin URI: https://github.com/inspireui/mstore-api
  * Description: The MStore API Plugin which is used for the MStore and FluxStore Mobile App
- * Version: 3.4.8
+ * Version: 3.5.0
  * Author: InspireUI
  * Author URI: https://inspireui.com
  *
