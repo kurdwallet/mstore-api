@@ -31,7 +31,7 @@ include_once plugin_dir_path(__FILE__) . "controllers/flutter-paid-memberships-p
 
 class MstoreCheckOut
 {
-    public $version = '3.4.8';
+    public $version = '3.5.0';
 
     public function __construct()
     {
@@ -358,7 +358,7 @@ function custom_woocommerce_rest_prepare_product_variation_object($response, $ob
 function prepare_checkout()
 {
 
-    if(empty($_GET)){
+    if(empty($_GET) && isset($_SERVER['HTTP_REFERER'])){
 		$url_components = parse_url($_SERVER['HTTP_REFERER']);
 		parse_str($url_components['query'], $params);
 		if(!empty($params)){
