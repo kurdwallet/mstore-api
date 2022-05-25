@@ -58,6 +58,7 @@ class MstoreCheckOut
             include_once plugin_dir_path(__FILE__) . "controllers/helpers/vendor-admin-woo-helper.php";
             include_once plugin_dir_path(__FILE__) . "controllers/helpers/vendor-admin-wcfm-helper.php";
             include_once plugin_dir_path(__FILE__) . "controllers/helpers/vendor-admin-dokan-helper.php";
+            include_once plugin_dir_path(__FILE__) . "controllers/flutter-customer.php";
         }
 
         $order = filter_has_var(INPUT_GET, 'code') && strlen(filter_input(INPUT_GET, 'code')) > 0 ? true : false;
@@ -360,10 +361,12 @@ function prepare_checkout()
 
     if(empty($_GET) && isset($_SERVER['HTTP_REFERER'])){
 		$url_components = parse_url($_SERVER['HTTP_REFERER']);
-		parse_str($url_components['query'], $params);
-		if(!empty($params)){
-			$_GET = $params;
-		}
+        if (isset($url_components['query'])) {
+            parse_str($url_components['query'], $params);
+            if(!empty($params)){
+                $_GET = $params;
+            }
+        }
 	}
     
     if (isset($_GET['mobile']) && isset($_GET['code'])) {
